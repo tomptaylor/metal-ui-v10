@@ -1,25 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es2023",
-    "experimentalDecorators": true,
+    "target": "ESNext",
     "useDefineForClassFields": false,
-    "module": "esnext",
-    "lib": ["ES2023", "DOM"],
-    "types": ["vite/client"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "moduleResolution": "bundler", // <--- CRUCIAL: Must be 'bundler' or 'node'
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "noEmit": true,
-
-    /* Linting */
+    "strict": true,
+    "skipLibCheck": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true, // <--- Necessary for Lit decorators
+    "emitDecoratorMetadata": true,
+    "types": ["@storybook/test"] // <--- Tells TS where to find 'expect' and 'within'
   },
   "include": ["src"]
 }
