@@ -2,7 +2,7 @@ import { html } from 'lit';
 import './DropdownRadio';
 
 export default {
-    title: 'Molecules/DropdownRadio',
+    title: 'Pages/DropdownRadio',
     component: 'dropdown-radio',
 };
 
