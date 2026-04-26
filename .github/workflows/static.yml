@@ -1,0 +1,25 @@
+name: Deploy Storybook to GitHub Pages
+on:
+  push:
+    branches: ["main"] # Change to your branch name if different
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1 # Fast Bun setup for your i9 workflow
+      - run: bun install
+      - run: bun run build-storybook # Builds your Lit components
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './storybook-static'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
